@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sopa de Letras Retro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="icon" href="./img/monday-8802107_12802.JPG">
+</head>
+<body>
+    <!-- Pantalla Principal -->
+    <div id="main-screen" class="screen">
+        <h1>Sopa de Letras Retro</h1>
+        <div id="ranking">
+            <h2>Ranking</h2>
+            <ul id="ranking-list"></ul>
+        </div>
+        <button id="start-button" aria-label="Iniciar Juego">Iniciar Juego</button>
+        <button id="instructions-button" aria-label="Instrucciones">Instrucciones</button>
+    </div>
+
+    <!-- Pantalla de Juego -->
+    <div id="game-screen" class="screen hidden">
+        <h1>Sopa de Letras Retro</h1>
+        <div id="game-container">
+            <div id="left-panel">
+                <button id="reset-button" aria-label="Reiniciar Juego">Reiniciar</button>
+            </div>
+            <canvas id="puzzle-canvas" width="480" height="480"></canvas>
+            <div id="right-panel">
+                <p id="timer">Tiempo: 120s</p>
+                <progress id="timer-bar" max="120" value="120"></progress>
+                <p id="points">Puntos: 0</p>
+                <div id="word-list">
+                    <h2>Palabras a Encontrar:</h2>
+                    <ul id="words"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla de Ranking -->
+    <div id="ranking-screen" class="screen hidden">
+        <h1>Ranking</h1>
+        <div id="final-ranking">
+            <ul id="final-ranking-list"></ul>
+        </div>
+        <div id="initials-input" class="hidden">
+            <p>¡Nuevo récord! Ingresa tus iniciales (máx. 4 letras):</p>
+            <input type="text" id="initials" maxlength="4" aria-label="Iniciales">
+            <button id="save-button" aria-label="Guardar Récord">Guardar</button>
+        </div>
+        <button id="back-button" aria-label="Volver al Inicio">Volver al Inicio</button>
+    </div>
+
+    <!-- Modal de Instrucciones -->
+    <div id="instructions-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Instrucciones</h2>
+            <p>
+                Selecciona las palabras arrastrando el mouse sobre las letras. Las palabras pueden estar en horizontal, vertical o diagonal.
+            </p>
+            <p>
+                ¡Encuentra todas las palabras antes de que se acabe el tiempo!
+            </p>
+            <button id="close-instructions-button">Salir</button>
+        </div>
+    </div>
+
+    <!-- Sonidos -->
+    <audio id="correct-sound" src="sounds/correct.mp3"></audio>
+    <audio id="error-sound" src="sounds/error.mp3"></audio>
+    <audio id="tick-sound" src="sounds/tick.mp3"></audio>
+    <audio id="reward-sound" src="sounds/aumentoTime.mp3"></audio>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
